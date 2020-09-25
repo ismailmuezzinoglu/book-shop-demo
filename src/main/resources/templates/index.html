@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+
+<html xmlns="http://www.thymeleaf.org" xml:lang="en">
+	<head>
+		<title>Welcome</title>
+		<!--  reference CSS file  -->
+		<link rel="stylesheet" th:href="@{/css/demo.css}"/>
+	</head>
+	
+	<body>
+	
+		<div th:replace="fragments/header">&nbsp;</div>
+		<p th:text="Welcome" class="funny" />
+	</body>
+	
+</html>
