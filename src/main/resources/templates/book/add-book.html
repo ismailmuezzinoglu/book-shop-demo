@@ -1,8 +1,9 @@
+
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Error page</title>
-
+<title>Add Book</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
 	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
@@ -17,18 +18,23 @@
 
 
 </head>
-</head>
 <body>
-	<div
-		th:with="httpStatus=${T(org.springframework.http.HttpStatus).valueOf(#response.status)}">
-		<div class="row">
-			<div class="shadow alert alert-danger">
-				<h1 th:text="|${httpStatus} - ${httpStatus.reasonPhrase}|">404</h1>
-				<p th:utext="${errorMessage}"></p>
-				<a th:href="@{/login}" class="btn-lg btn btn-dark">Back to
-					Home Page</a>
+
+	<div class="container">
+		<div class="row ">
+			<div class="col-md-auto">
+				<span>Coming Soon... </span>
+
+			</div>
+			<div class="w-100"></div>
+			<div class="col-md-auto ">
+				<a th:href="@{/login}" class="btn-lg btn btn-dark">Back to Home
+					Page</a>
+
 			</div>
 		</div>
 	</div>
 </body>
+
+
 </html>

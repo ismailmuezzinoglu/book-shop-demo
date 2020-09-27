@@ -1,16 +1,14 @@
 <!DOCTYPE HTML>
 
-<html xmlns="http://www.thymeleaf.org" xml:lang="en">
-	<head>
-		<title>Welcome</title>
-		<!--  reference CSS file  -->
-		<link rel="stylesheet" th:href="@{/css/demo.css}"/>
-	</head>
-	
-	<body>
-	
-		<div th:replace="fragments/header">&nbsp;</div>
-		<p th:text="Welcome" class="funny" />
-	</body>
-	
+<html xmlns:th="http://www.thymeleaf.org" xml:lang="en">
+<head>
+<title>Welcome</title>
+</head>
+
+<body>
+	<div th:replace="fragments/header">&nbsp;</div>
+
+	<div th:replace="book/booklist">&nbsp;</div>
+</body>
+
 </html>

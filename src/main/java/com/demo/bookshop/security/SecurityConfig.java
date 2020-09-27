@@ -1,5 +1,8 @@
 package com.demo.bookshop.security;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -9,9 +12,16 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+/**
+ * Security configuration 
+ * Managing user groups and roles
+ * 
+ */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+	
+	private static Logger logger = LoggerFactory.getLogger(SecurityConfig.class);
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -27,12 +37,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.httpBasic()
 			.and()
 				.authorizeRequests()
-					.antMatchers("/login").permitAll()
+					.antMatchers("/","/login").permitAll()
 					.antMatchers("/**").hasRole("ADMIN")
 			.and()
 				.formLogin().loginPage("/login").permitAll().defaultSuccessUrl("/").failureForwardUrl("/login-error")
-			.and()
-				.exceptionHandling().accessDeniedPage("/error");
+			
+				
+				;//.and().exceptionHandling().accessDeniedPage("/error");
+		
 	}
 	
 	@Bean

@@ -1,6 +1,6 @@
-<html xmlns="http://www.thymeleaf.org" xml:lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xml:lang="en">
 <head>
-<title>Hello</title>
+<title>Login Page</title>
 
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -10,47 +10,45 @@
 	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 	crossorigin="anonymous"></script>
 <script
-	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-	integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-	crossorigin="anonymous"></script>
-<script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
 	integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
 	crossorigin="anonymous"></script>
-<script
-	src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
 
 </head>
 
-<body class="bg-light">
-	<div class="container h-100 pt-4">
+<body class="d-flex align-content-center flex-wrap">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-4 border shadow m-4 bg-dark">
 
-		<div class="row pt-4 ">
-			<h1>
-				<span th:text="#{login.pageHeader}" />
-			</h1>
-			<div class="col-md-4"></div>
-			<div class="col-md-4 border rounded shadow m-4 bg-dark">
 				<form th:action="@{/login}" method="post">
+
 					<div class="row">
 						<div class="col-md-12 form-group">
-							<label class="d-block" for="username">
-								<p th:text="#{login.userName}" class="text-light" /> <input
-								type="text" name="username" autofocus="autofocus"
-								class="form-control" />
+							<h5 th:text="#{login.loginMessages}"
+								class="p-2 bg-dark text-white" />
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12 form-group">
+							<label class="d-block" for="username"> <input type="text"
+								name="username" autofocus="autofocus" class="form-control"
+								th:placeholder="#{login.userName}" />
 							</label>
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="col-md-12 form-group">
-							<label class="d-block" for="password">
-								<p th:text="#{login.password}" class="text-light" /> <input
-								type="password" name="password" class="form-control" />
+							<label class="d-block" for="password"> <input
+								type="password" name="password" class="form-control"
+								th:placeholder="#{login.password}" />
 							</label>
 						</div>
 					</div>
+
 					<div class="row">
 						<div class="col-md-12 form-group">
 							<input type="submit" class="btn-lg btn-outline-dark"
@@ -62,6 +60,12 @@
 						<span th:text="#{login.failure}" />
 					</div>
 				</form>
+			</div>
+
+			<div class="d-flex p-1 align-items-center justify-content-center">
+				<h1 class="font-italic text-center">
+					<span th:text="#{login.motto}" />
+				</h1>
 			</div>
 		</div>
 	</div>
