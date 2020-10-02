@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -20,6 +18,91 @@
 </head>
 <body>
 
+	<div th:replace="fragments/header">&nbsp;</div>
+
+	<div class="container my-5">
+		<h3>Add Book</h3>
+		<div class="card">
+			<div class="card-body">
+				<div class="col-md-10">
+					<form action="#" th:action="@{/book/add}" th:object="${book}"
+						method="post">
+						<div class="row">
+							<div class="form-group col-md-8">
+								<label for="title" class="col-form-label"><span th:text="#{book.title}"></span></label><input
+									type="text" th:field="*{title}" class="form-control" id="title"
+									th:placeholder="#{book.title}"> <span
+									th:if="${#fields.hasErrors('title')}" th:errors="*{title}"
+									class="text-danger"></span>
+							</div>
+
+							<div class="form-group col-md-8">
+								<label for="subTitle" class="col-form-label"><span th:text="#{book.subTitle}"></span></label><input
+									type="text" th:field="*{subTitle}" class="form-control"
+									id="subTitle" th:placeholder="#{book.subTitle}"> <span
+									th:if="${#fields.hasErrors('subTitle')}"
+									th:errors="*{subTitle}" class="text-danger"></span>
+							</div>
+
+							<div class="form-group col-md-8">
+								<label for="seriesName" class="col-form-label"><span th:text="#{book.seriesName}"></span></label>
+								<input type="text" th:field="*{seriesName}" class="form-control"
+									id="seriesName" th:placeholder="#{book.seriesName}"> <span
+									th:if="${#fields.hasErrors('seriesName')}"
+									th:errors="*{seriesName}" class="text-danger"></span>
+							</div>
+
+							<div class="form-group col-md-8">
+								<label for="isbn" class="col-form-label"><span th:text="#{book.isbn}"></span></label> <input
+									type="text" th:field="*{isbn}" class="form-control" id="isbn"
+									th:placeholder="#{book.isbn}"> <span
+									th:if="${#fields.hasErrors('isbn')}" th:errors="*{isbn}"
+									class="text-danger"></span>
+							</div>
+
+							<div class="form-group col-md-8">
+								<label for="bookInfo" class="col-form-label"><span th:text="#{book.bookInfo}"></span></label>
+								<textarea th:field="*{bookInfo}" class="form-control"
+									id="bookInfo" th:placeholder="#{book.bookInfo}"></textarea>
+								<span th:if="${#fields.hasErrors('bookInfo')}"
+									th:errors="*{bookInfo}" class="text-danger"></span>
+							</div>
+
+							<div class="form-group col-md-8">
+								<label for="author" class="col-form-label"><span th:text="#{book.author}"></span></label> <select
+									class="form-control" th:field="*{author}">
+									<option value="0" th:text="#{global.select}"></option>
+									<option th:each="author : ${authors}" th:value="${author}"
+										th:text="${author.firstName} + ' ' + ${author.surName}"></option>
+								</select> <span th:if="${#fields.hasErrors('author')}"
+									th:errors="*{author}" class="text-danger"></span>
+							</div>
+							
+							
+							<div class="form-group col-md-8">
+								<label for="author" class="col-form-label"><span th:text="#{book.publisher}"></span></label> <select
+									class="form-control" th:field="*{publisher}">
+									<option value="0" th:text="#{global.select}"></option>
+									<option th:each="author : ${authors}" th:value="${author}"
+										th:text="${author.publisherName}"></option>
+								</select> <span th:if="${#fields.hasErrors('publisher')}"
+									th:errors="*{publisher}" class="text-danger"></span>
+							</div>
+							
+
+							<div class="col-md-6">
+								<input type="submit" class="btn btn-primary" value="Add Book">
+							</div>
+
+							<div class="form-group col-md-8"></div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
 	<div class="container">
 		<div class="row ">
 			<div class="col-md-auto">

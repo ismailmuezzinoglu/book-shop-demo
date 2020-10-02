@@ -14,7 +14,7 @@ public class Publisher {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long publisherId;
 
 	private String publisherName;
 
@@ -34,12 +34,12 @@ public class Publisher {
 		this.books = books;
 	}
 
-	public Long getId() {
-		return id;
+	public Long getPublisherId() {
+		return publisherId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setPublisherId(Long publisherId) {
+		this.publisherId = publisherId;
 	}
 
 	public String getPublisherName() {

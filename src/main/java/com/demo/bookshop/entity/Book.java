@@ -5,36 +5,42 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Book {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long bookId;
 
+	@NotBlank(message = "Name is mandatory")
 	private String title;
 
 	private String subTitle;
 
 	private String seriesName;
 
+	@NotBlank(message = "ISBN is mandatory")
 	private String isbn;
 
 	private String bookInfo;
 
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "author_id")
 	private Author author;
 
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "publisher_id")
 	private Publisher publisher;
-	
+
 	public Book() {
 	}
 
-	public Book(String title, String subTitle, String seriesName, String isbn, String bookInfo,
-			Author author, Publisher publisher) {
+	public Book(String title, String subTitle, String seriesName, String isbn, String bookInfo, Author author,
+			Publisher publisher) {
 		super();
 		this.title = title;
 		this.subTitle = subTitle;
@@ -45,35 +51,35 @@ public class Book {
 		this.publisher = publisher;
 	}
 
-	public Long getId() {
-		return id;
+	public Long getBookId() {
+		return bookId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setBookId(Long bookId) {
+		this.bookId = bookId;
 	}
 
-	public String gettitle() {
+	public String getTitle() {
 		return title;
 	}
 
-	public void settitle(String title) {
+	public void setTitle(String title) {
 		this.title = title;
 	}
 
-	public String getsubTitle() {
+	public String getSubTitle() {
 		return subTitle;
 	}
 
-	public void setsubTitle(String subTitle) {
+	public void setSubTitle(String subTitle) {
 		this.subTitle = subTitle;
 	}
 
-	public String getseriesName() {
+	public String getSeriesName() {
 		return seriesName;
 	}
 
-	public void setseriesName(String seriesName) {
+	public void setSeriesName(String seriesName) {
 		this.seriesName = seriesName;
 	}
 

@@ -34,7 +34,7 @@ public class AuthorRepositoryTests {
 		
 		Author authorActual = authorRepository.save(author);
 		
-		assertEquals(authorActual, authorRepository.findById(authorActual.getId()).get());
+		assertEquals(authorActual, authorRepository.findById(authorActual.getAuthorId()).get());
 	}
 
 }
